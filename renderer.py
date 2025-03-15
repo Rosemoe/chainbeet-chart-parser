@@ -57,10 +57,10 @@ def analyze_beats(notes: list) -> list[tuple[float, int]]:
         curr = timings[i]
         time_delta = 60.0 / timing_bpm[curr] * 4
         beat = 0
-        if i > 0:
-            prev = time_delta / (curr - timings[i - 1])
-            if abs(prev - round(prev)) < error_tolerance:
-                beat = max(beat, round(prev))
+        # if i > 0:
+        #     prev = time_delta / (curr - timings[i - 1])
+        #     if abs(prev - round(prev)) < error_tolerance:
+        #         beat = max(beat, round(prev))
         if i < len(timings) - 1:
             nxt = time_delta / (timings[i + 1] - curr)
             if abs(nxt - round(nxt)) < error_tolerance:
